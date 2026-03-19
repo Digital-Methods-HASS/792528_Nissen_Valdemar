@@ -149,7 +149,7 @@ This plot collates all the points across time. The next step is to split it into
 anim + transition_states(year, 
                       transition_length = 1,
                       state_length = 1)+
-  ggtitle("World in{closest_state}")
+  ggtitle("World in {closest_state}")
 
 
 ```
@@ -168,7 +168,8 @@ anim2 <- ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop/1000000)) +
   labs(x= "GDP per capita",
        y= "Life expectancy") + 
   transition_time(year) +
-  ggtitle("World from 1952-2007")
+  ggtitle("World in {frame_time}")+
+  theme(text=element_text(size=14,face="bold"))
 anim2
 ```
 
@@ -220,7 +221,6 @@ Again, after 5 years the global populated-weighted GDP per capita has risen by 1
 With the use of these codes, the conclusion is that the world has become a better place from the year 2002 to 2007. 
 
 ```{r}
-view(gapminder_unfiltered)
 library(ggplot2)
 #
 gapminder_unfiltered%>%
